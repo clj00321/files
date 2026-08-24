@@ -1,0 +1,46 @@
+name: update-install-menu
+
+on:
+  push:
+    paths:
+      - 'co/linus/debian13/scripts/bash/*.sh'
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate menu block in install.sh
+        run: |
+          DIR="co/linus/debian13/scripts/bash"
+          INSTALL="$DIR/install.sh"
+          TMP=$(mktemp)
+
+          SCRIPTS=()
+          for f in "$DIR"/*.sh; do
+            name="$(basename "$f")"
+            [[ "$name" == "install.sh" ]] && continue
+            SCRIPTS+=("$name")
+          done
+
+          sed -n '1,/# MENU_START/p' "$INSTALL" > "$TMP"
+
+          for i in "${!SCRIPTS[@]}"; do
+            echo "    echo \"  $((i+1))) 📦 ${SCRIPTS[$i]}\"" >> "$TMP"
+          done
+
+          sed -n '/# MENU_END/,$p' "$INSTALL" >> "$TMP"
+
+          mv "$TMP" "$INSTALL"
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: regen install.sh menu"
+          git push
