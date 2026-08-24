@@ -3,7 +3,7 @@ set -euo pipefail
 
 SCRIPT_NAME="$(basename "$0")"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-RAW_BASE="https://raw.githubusercontent.com/OWNER/REPO/main/co/linus/debian13/scripts/bash"
+RAW_BASE="https://raw.githubusercontent.com/clj00321/files/main/co/linus/debian13/scripts/bash"
 
 echo "[$SCRIPT_NAME] 🌐 Debian 13 — Installationsmenu"
 echo "  ─────────────────────────────────"
