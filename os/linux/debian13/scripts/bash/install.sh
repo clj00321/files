@@ -19,13 +19,14 @@
 set -euo pipefail
 
 SCRIPT_NAME="install.sh"
-GENERATED_AT="2026-09-01T08:16:50+02:00"
-SCRIPT_COUNT=4
-BUNDLE_SHA="f2eb6fa1c3626ead"
+GENERATED_AT="2026-09-01T08:43:07+02:00"
+SCRIPT_COUNT=5
+BUNDLE_SHA="8b331049a3e364bf"
 
 ORDER=(
     'curl.sh'
     'docker.sh'
+    'openrouter.sh'
     'su.sh'
     'update.sh'
 )
@@ -33,12 +34,14 @@ ORDER=(
 declare -A DESC=()
 DESC['curl.sh']='📡 Installerer curl'
 DESC['docker.sh']='🐳 Installerer Docker'
+DESC['openrouter.sh']='(ingen beskrivelse)'
 DESC['su.sh']='🌐 Debian 13 — Installationsmenu'
 DESC['update.sh']='🔄 Opdaterer system'
 
 declare -A SHA=()
 SHA['curl.sh']='2fd7227525e7'
 SHA['docker.sh']='119b92f3f0a2'
+SHA['openrouter.sh']='6de2284c25d1'
 SHA['su.sh']='9e91bdfdf202'
 SHA['update.sh']='609e05dd4c6a'
 
@@ -61,6 +64,16 @@ ZW5hbWUgIiQwIikiCmVjaG8gIlskU0NSSVBUX05BTUVdIPCfkLMgSW5zdGFsbGVyZXIgRG9ja2Vy
 IgoKY3VybCAtZnNTTCBodHRwczovL2dldC5kb2NrZXIuY29tIHwgYmFzaApzeXN0ZW1jdGwgZW5h
 YmxlIC0tbm93IGRvY2tlciAyPi9kZXYvbnVsbCB8fCB0cnVlCmVjaG8gIlskU0NSSVBUX05BTUVd
 IOKchSIK
+__B64_EOF__
+)
+
+# openrouter.sh
+PAYLOAD['openrouter.sh']=$(cat <<'__B64_EOF__'
+IyEvdXNyL2Jpbi9lbnYgYmFzaApzZXQgLWV1byBwaXBlZmFpbAoKIyBNYXBwZSBodm9yIHNjcmlw
+dGV0IGxpZ2dlcgpESVI9IiQoY2QgIiQoZGlybmFtZSAiJHtCQVNIX1NPVVJDRVswXX0iKSIgJiYg
+cHdkKSIKT1VURklMRT0iJERJUi9vcGVucm91dGVyX29wZW5hcGkuanNvbiIKCmN1cmwgLWZzU0wg
+Imh0dHBzOi8vb3BlbnJvdXRlci5haS9vcGVuYXBpLmpzb24iIC1vICIkT1VURklMRSIKCmVjaG8g
+Ik9wZW5Sb3V0ZXIgT3BlbkFQSS1zcGVjIGdlbXQgaTogJE9VVEZJTEUiCg==
 __B64_EOF__
 )
 
