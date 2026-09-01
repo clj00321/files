@@ -19,9 +19,9 @@
 set -euo pipefail
 
 SCRIPT_NAME="install.sh"
-GENERATED_AT="2026-09-01T08:43:07+02:00"
+GENERATED_AT="2026-09-01T08:47:12+02:00"
 SCRIPT_COUNT=5
-BUNDLE_SHA="8b331049a3e364bf"
+BUNDLE_SHA="22d33e3a88546311"
 
 ORDER=(
     'curl.sh'
@@ -41,7 +41,7 @@ DESC['update.sh']='🔄 Opdaterer system'
 declare -A SHA=()
 SHA['curl.sh']='2fd7227525e7'
 SHA['docker.sh']='119b92f3f0a2'
-SHA['openrouter.sh']='6de2284c25d1'
+SHA['openrouter.sh']='d28d87b4b89c'
 SHA['su.sh']='9e91bdfdf202'
 SHA['update.sh']='609e05dd4c6a'
 
@@ -69,11 +69,8 @@ __B64_EOF__
 
 # openrouter.sh
 PAYLOAD['openrouter.sh']=$(cat <<'__B64_EOF__'
-IyEvdXNyL2Jpbi9lbnYgYmFzaApzZXQgLWV1byBwaXBlZmFpbAoKIyBNYXBwZSBodm9yIHNjcmlw
-dGV0IGxpZ2dlcgpESVI9IiQoY2QgIiQoZGlybmFtZSAiJHtCQVNIX1NPVVJDRVswXX0iKSIgJiYg
-cHdkKSIKT1VURklMRT0iJERJUi9vcGVucm91dGVyX29wZW5hcGkuanNvbiIKCmN1cmwgLWZzU0wg
-Imh0dHBzOi8vb3BlbnJvdXRlci5haS9vcGVuYXBpLmpzb24iIC1vICIkT1VURklMRSIKCmVjaG8g
-Ik9wZW5Sb3V0ZXIgT3BlbkFQSS1zcGVjIGdlbXQgaTogJE9VVEZJTEUiCg==
+IyEvdXNyL2Jpbi9lbnYgYmFzaApjdXJsIC1zIGh0dHBzOi8vb3BlbnJvdXRlci5haS9vcGVuYXBp
+Lmpzb24gLW8gIiQoZGlybmFtZSAiJDAiKS9vcGVucm91dGVyLmpzb24iCg==
 __B64_EOF__
 )
 
